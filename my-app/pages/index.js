@@ -18,9 +18,9 @@ export default function Home() {
   // loading is set to true when we are waiting for a transaction to get mined
   const [loading, setLoading] = useState(false);
   // tokensToBeClaimed keeps track of the number of tokens that can be claimed
-  // based on the Crypto Dev NFT's held by the user for which they havent claimed the tokens
+  // based on the NFT Zone NFT's held by the user for which they havent claimed the tokens
   const [tokensToBeClaimed, setTokensToBeClaimed] = useState(zero);
-  // balanceOfonigiriTokens keeps track of number of Crypto Dev tokens owned by an address
+  // balanceOfonigiriTokens keeps track of number of Onigiri tokens owned by an address
   const [balanceOfOnigiriTokens, setBalanceOfOnigiriTokens] = useState(zero);
   // amount of the tokens that the user wants to mint
   const [tokenAmount, setTokenAmount] = useState(zero);
@@ -84,7 +84,7 @@ export default function Home() {
   };
 
   /**
-   * getBalanceOfOnigiriTokens: checks the balance of Crypto Dev Tokens's held by an address
+   * getBalanceOfOnigiriTokens: checks the balance of Onigiri Tokens's held by an address
    */
   const getBalanceOfOnigiriTokens = async () => {
     try {
@@ -128,7 +128,7 @@ export default function Home() {
       // Each token is of `0.001 ether`. The value we need to send is `0.001 * amount`
       const value = 0.001 * amount;
       const tx = await tokenContract.mint(amount, {
-        // value signifies the cost of one crypto dev token which is "0.001" eth.
+        // value signifies the cost of one Onigiri token which is "0.001" eth.
         // We are parsing `0.001` string to ether using the utils library from ethers.js
         value: utils.parseEther(value.toString()),
       });
@@ -146,7 +146,7 @@ export default function Home() {
   };
 
   /**
-   * claimOnigiriTokens: Helps the user claim Crypto Dev Tokens
+   * claimOnigiriTokens: Helps the user claim Onigiri Tokens
    */
   const claimOnigiriTokens = async () => {
     try {
@@ -364,7 +364,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Crypto Devs</title>
+        <title>NFT Zone</title>
         <meta name="description" content="ICO-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
